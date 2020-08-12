@@ -20,8 +20,8 @@ $(function(){
                     
                 success: function (response) {
                     console.log(response); 
-                    var dt = new Date();
-                    var time = dt.getHours() + ":" + dt.getMinutes(); 
+                    var date = new Date();
+                    var time= date.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'}); 
                     // document.write(time);
 
                     $('<li class="sent"><img src="/images/luffy1.jpg" alt="" /><p>' + $message + '</p><span class="time_sent">'+time+'</span></li>').appendTo($(".messages."+ activeContact +" ul"));

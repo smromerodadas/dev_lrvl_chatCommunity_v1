@@ -7,6 +7,9 @@ $(document).ready(function(){
             // console.log(response); 
             var user = response[0]; 
             var contacts = response[1]; 
+
+            console.log(user); 
+            console.log(contacts); 
             
             var my_contacts = $("#contact-list");
 
@@ -20,7 +23,7 @@ $(document).ready(function(){
                             "<div class='wrap'>" + 
                             "<span class='contact-status online'></span>" +
                             "<img src='/images/luffy2.jpg' alt=''/>" +
-                            "<div class='meta'" + 
+                            "<div class='meta'>" + 
                             "<p class='name'>" + contacts[i].nickname +"</p>" +
                             "<p class='preview'> Start a Conversation</p>" +
                             "</div>" + 

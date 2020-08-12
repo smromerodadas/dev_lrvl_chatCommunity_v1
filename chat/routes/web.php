@@ -32,7 +32,7 @@ Route::POST('save_messages', 'ConversationController@save_message');
 Route::GET('display_messages', "ConversationController@display_message");
 // Route::GET('get_messages/{id}', "ConversationController@get_message");
 
-
+Route::GET('add_contact', 'UserActionsController@add_contact'); 
 
 Route::GET('logout', "UserCompanyController@logout")->name('logout');
 

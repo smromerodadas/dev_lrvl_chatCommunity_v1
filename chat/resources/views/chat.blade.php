@@ -56,6 +56,8 @@ body {
     margin-bottom: 10px;
 }
 
+
+
 @media screen and (max-width: 735px) {
     body #search label {
         margin-left: 8px;
@@ -635,6 +637,7 @@ body {
     margin: 9px 12px 0 9px;
 }
 
+
 .contact-profile p {
     float: left;
 }
@@ -669,7 +672,7 @@ body {
     display: inline-block;
     clear: both;
     /* float: left; */
-    margin: 10px 10px 5px 10px;
+    margin: 1px 10px 1px 10px;
     width: calc(100% - 25px);
     font-size: 0.9em;
 }
@@ -701,7 +704,7 @@ body {
 .messages ul .time_received{
     font-family: Lato;
     font-size: 10px; 
-    text-align: center; 
+    margin-left: 5px; 
 }
 
 .messages ul .time_sent{
@@ -951,14 +954,96 @@ hr{
 }
 
 
-.messages .date{
+.messages .date p{
     text-align: center; 
     margin-top: 5px; 
     margin-bottom: 2px; 
     font-size: 10px; 
-    display: none; 
 }
 
+
+/* add contact modal */
+
+.modal-body{
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+    height: 450px; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#new-contacts::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+#new-contacts::-webkit-scrollbar-thumb {
+    background-color: var(--darkblue);
+}
+
+#searchNewContact{
+    margin: 0px; 
+}
+
+#searchNewContact input{
+    border-radius: 15px;
+    font-family: Lato;
+    padding: 5px 15px 5px 46px;
+    width: 200px;
+    border: none;
+    background: #0A1419;
+    color: white;
+    overflow: hidden;
+}
+
+#searchNewContact input::-webkit-input-placeholder {
+    color: white; 
+}
+
+#searchNewContact input::-moz-placeholder {
+    color: white; 
+}
+
+#searchNewContact input:-ms-input-placeholder {
+    color: white; 
+}
+
+#searchNewContact input:-moz-placeholder {
+    color: white; 
+}
+
+
+#searchNewContact label {
+    color: white; 
+    position: absolute;
+    margin: 6px 0 0 20px;
+}
+
+.new-contact-img{
+    width: 40px;
+    border-radius: 50%;
+    float: left;
+    margin: 5px 12px 0px 9px;
+}
+
+.new-contact-username{
+    float: left;
+    margin-top: 14px; 
+}
+
+.add-contact-btn{
+    float: right;
+    border: 0px; 
+    background: var(--darkblue); 
+    color: white; 
+    margin-top: 14px; 
+    height: 25px;
+    width: 150px; 
+}
+
+#new-contact-list li {
+    height:60px; 
+}
 
 </style>
 @endsection
@@ -988,8 +1073,8 @@ hr{
                     </p>
 
                     <button id="settings"class="fa fa-cog fa-fw" aria-hidden="true"></button>
-                    {{-- <button id="filter-category" class="fa fa-filter" aria-hidden="true"></button> --}}
-                    <button id="addcontact" class="fa fa-user-plus fa-fw" aria-hidden="true"></button>
+                    <button id="addcontact" class="fa fa-user-plus fa-fw" aria-hidden="true" type="button" 
+                        data-toggle="modal" data-target="#add_contact_modal"></button>
                 </div>
             </div>
         </div>
@@ -1057,8 +1142,85 @@ hr{
                 </div>
             </form>
         </div>      
-            
-        
+    </div>
+
+
+    {{-- modal for add contact --}}
+    <div id="add_contact_modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+                <div id="searchNewContact">
+                    <label><i class="fa fa-search" aria-hidden="true"></i></label>
+                    <input type="text" placeholder="Search Contact" />
+                </div>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="new-contacts">
+                <ul id="new-contact-list">
+                    {{-- <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                     <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li>
+
+                    <li>
+                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
+                        <p class='new-contact-username'> lorem </p>
+                        <button class="add-contact-btn">Add Contact</button>
+                    </li> --}}
+                </ul>
+            </div>
+          </div>
+      
+        </div>
     </div>
     
     
@@ -1067,8 +1229,10 @@ hr{
 
 @section('script')
 <script src="/js/contacts/contacts.js"></script>
+<script src="/js/contacts/addContact.js"></script>
 <script src="/js/messages/saveMessage.js"></script>
 <script src="/js/messages/displayMessage.js"></script>
+
 
 <script >
     

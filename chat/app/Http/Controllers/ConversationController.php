@@ -90,10 +90,10 @@ class ConversationController extends Controller
     }
 
     public function display_message(){
-        $userOnline = Session::get('userData');
+        $loggedInUser = Session::get('userData');
         $userContacts = ConversationParticipant::all();
-        $userMessages = ConversationThread::where('conversation_participant_id', $userOnline->pofsis_user_id)->orWhere('created_by', $userOnline->pofsis_user_id)->orderBy('created_at', 'asc')->get();
-        $msgData = array($userOnline, $userContacts, $userMessages); 
+        $userMessages = ConversationThread::where('conversation_participant_id', $loggedInUser->pofsis_user_id)->orWhere('created_by', $loggedInUser->pofsis_user_id)->orderBy('created_at', 'asc')->get();
+        $msgData = array($loggedInUser, $userContacts, $userMessages); 
         return json_encode($msgData); 
     }
 
