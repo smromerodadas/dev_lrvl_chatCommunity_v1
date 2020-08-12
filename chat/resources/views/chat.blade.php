@@ -1160,62 +1160,6 @@ hr{
             </div>
             <div class="modal-body" id="new-contacts">
                 <ul id="new-contact-list">
-                    {{-- <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                     <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li>
-
-                    <li>
-                        <img class="new-contact-img" src='/images/luffy2.jpg' alt=''/>
-                        <p class='new-contact-username'> lorem </p>
-                        <button class="add-contact-btn">Add Contact</button>
-                    </li> --}}
                 </ul>
             </div>
           </div>

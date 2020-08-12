@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserCompany;
+use App\Conversation;
 use App\ConversationParticipant;
 use Session; 
 
 class UserActionsController extends Controller
 {
-    public function add_contact(){
+    public function display_new_contact(){
         $loggedInUser = Session::get('userData');
         $userConversationIDs = ConversationParticipant::where('user_id', $loggedInUser->id)->pluck('conversation_id');
         
@@ -23,6 +24,28 @@ class UserActionsController extends Controller
         $allUsers = UserCompany::all(); 
         $users = array($userContactsID, $allUsersID, $allUsers); 
         return json_encode($users); 
+    }
+
+    public function add_new_contact(Request $request){
+        $addedContact = $request->input('addedContact'); 
+        $userReceiver = UserCompany::where('username', $addedContact)->first();
+        $userSender = Session::get('userData');
+
+        $conversation = new Conversation(); 
+        $conversation->save(); 
+
+
+        $conversationParticipant = new ConversationParticipant();
+        $conversationParticipant->conversation_id = $conversation->id; 
+        $conversationParticipant->user_id = $userSender->pofsis_user_id; 
+        $conversationParticipant->nickname = $userSender->username;
+        $conversationParticipant->save(); 
+
+        $conversationParticipant = new ConversationParticipant();
+        $conversationParticipant->conversation_id = $conversation->id; 
+        $conversationParticipant->user_id = $userReceiver->pofsis_user_id; 
+        $conversationParticipant->nickname = $userReceiver->username;
+        $conversationParticipant->save();
     }
     /**
      * Display a listing of the resource.

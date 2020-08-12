@@ -2,7 +2,7 @@ $(document).ready(function(){
     $.ajax({
         type: "GET",
         dataType: 'json',
-        url: "/add_contact",
+        url: "/display_new_contact",
         success: function (response) {
             var userContactsID = response[0]; 
             var allUsersID = response[1]; 
@@ -23,7 +23,7 @@ $(document).ready(function(){
                             "<li class = 'new-contact "+allUsers[i].username+"' >" +
                             "<img  class='new-contact-img' src='/images/luffy2.jpg' alt=''/>" +
                             "<p class='new-contact-username'> "+allUsers[i].username+" </p>" +
-                            "<button class='add-contact-btn'>Add Contact</button>"
+                            "<button type='submit' class='add-contact-btn' id="+allUsers[i].username+">Add Contact</button>"
 
                         ); 
                         console.log(allUsers[i]); 
@@ -31,6 +31,27 @@ $(document).ready(function(){
                 });
                 
             });
+
+            $('#new-contact-list').find('button').click(function(e) {
+                e.preventDefault();
+                var $addedContact = ($(this).attr('id'));
+
+                // console.log(addedContact); 
+
+                $.ajax({
+                    type: "POST",
+                    url: "/add_new_contact",
+                    data: { 'addedContact' : $addedContact},
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                    success: function (response) {
+                        console.log(response); 
+                    }
+                });
+            }); 
+
+
 
         }
     });
