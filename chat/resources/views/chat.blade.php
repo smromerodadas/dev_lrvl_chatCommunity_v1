@@ -13,7 +13,7 @@ body {
 }
 
 #frame {
-    height: 100vh;
+    height: 100%;
     min-height: 100vh;
     max-height: 720px;
     background: #E6EAEA;
@@ -31,7 +31,7 @@ body {
     min-width: 280px;
     max-width: 340px;
     width: 40%;
-    height: 100%;
+    height: calc(100% - 60px);
     background: var(--darkblue);
     color: white;
     overflow: hidden;
@@ -561,7 +561,7 @@ body {
 .messages_content{
     float: right;
     width: 60%;
-    height: 100%;
+    height: calc(100% - 60px);
     overflow: hidden;
     position: relative;
 }
@@ -601,7 +601,8 @@ body {
 .navbar {
     background-color: var(--darkblue);
     color: white;
-    height: 43px;
+    height: 43px; 
+    /* width: 100%;  */
     font-family: LatoBlackItalic;
     letter-spacing: 1px;
 }
@@ -644,11 +645,14 @@ body {
 
 #frame .content .messages {
     height: auto;
-    background-color: white; 
+    background-color: white;
+
+    /* min-height: 100%;
+    max-height: 100%;  */
     
     
-    min-height: calc(100% - 145px);
-    max-height: calc(100% - 145px);
+    min-height: calc(100% - 90px);
+    max-height: calc(100% - 90px);
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -797,7 +801,7 @@ body {
     float: right;
     border: none;
     width: 50px;
-    padding: 12px 0;
+    padding: 11px 0;
     cursor: pointer;
     background: var(--darkblue);
     color: #f5f5f5;
@@ -1051,6 +1055,9 @@ hr{
 @section('content')
 
 <div id="frame">
+    <nav class="navbar">
+        <h5 class="title align-middle ">CHAT COMMUNITY<i class='fa fa-envelope mx-1'></i> </h5>
+    </nav>
 	<div id="sidepanel">
         <div id="status-options">
             <ul>
@@ -1125,9 +1132,7 @@ hr{
     </div>
 
 	<div class="messages_content">
-        <nav class="navbar">
-            <h5 class="title align-middle ">CHAT COMMUNITY<i class='fa fa-envelope mx-1'></i> </h5>
-        </nav>
+       
 
         <div class="content" id="content">
             
@@ -1184,8 +1189,6 @@ hr{
         $(".category-list .personal").css("color", "white");
     });
 
-    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
-    
     $("#profile-img").click(function() {
 	    $("#status-options").toggleClass("active");
     });

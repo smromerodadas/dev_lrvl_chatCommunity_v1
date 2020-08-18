@@ -87,6 +87,7 @@ class ConversationController extends Controller
         }
         
         $conversationThread->save();
+        return $message; 
     }
 
     public function display_message(){

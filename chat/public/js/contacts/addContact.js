@@ -33,7 +33,6 @@ $(document).ready(function(){
             });
 
             $('#new-contact-list').find('button').click(function(e) {
-                e.preventDefault();
                 var $addedContact = ($(this).attr('id'));
 
                 // console.log(addedContact); 

@@ -46,7 +46,8 @@ $(document).ready(function (){
 
                     $('.message-input input').val(null);
                     $(".contact."+ active +" .preview").html('<b>'+msg[i].message +'<b>');
-                    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+                    // $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+                    $(".messages").scrollTop($(".messages ul").height()); 
                     
                     displayDate(active); 
                     // $('<p>'+ prevDate +'</p>').appendTo($('#msg'+msg[i].id+''));
@@ -73,7 +74,8 @@ $(document).ready(function (){
                     // $('<span class="date" id="msg-'+msg[i].id+'"></span> <li class="sent"><img src="/images/luffy1.jpg" alt="" /><p>' + msg[i].message + '</p><span class="time_sent">'+time+'</span></li>').appendTo($(".messages."+ active +" ul"));
                     $('.message-input input').val(null);
                     $(".contact."+ active +" .preview").html('<span>You: </span>'+msg[i].message);
-                    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+                    // $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+                    $(".messages").scrollTop($(".messages ul").height()); 
 
                     displayDate(active); 
 
@@ -91,6 +93,8 @@ $(document).ready(function (){
                         console.log(prevDate); 
                     }
                 }
+
+                
                 
             });
             

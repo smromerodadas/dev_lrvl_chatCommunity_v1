@@ -27,7 +27,7 @@ $(function(){
                     $('<li class="sent"><img src="/images/luffy1.jpg" alt="" /><p>' + $message + '</p><span class="time_sent">'+time+'</span></li>').appendTo($(".messages."+ activeContact +" ul"));
                     $('.message-input input').val(null);
                     $('.contact.active .preview').html('<span>You: </span>' + $message);
-                    $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+                    $(".messages").scrollTop($(".messages ul").height()); 
                 }
             });
         }
